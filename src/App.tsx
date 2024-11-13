@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import {Routes, Route} from "react-router-dom";
-import Page1 from "./pages/example/page/Page1";
+import LoginPage from "./pages/login/page/LoginPage";
 
 const App: React.FC = () => (
       <Routes>
-        <Route path="/" element={<Page1 />} />
+        <Route path="/" element={<LoginPage />} />
       </Routes>
 );
 

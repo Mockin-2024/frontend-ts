@@ -4,7 +4,7 @@ import InputField from "../../../components/InputField";
 import Button from "../../../components/Button";
 import useSignInClickHandler from "../hooks/useSignInClickHandler";
 
-const LoginPage: React.FC = () => {
+const SignInPage: React.FC = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const buttonOnClick = useSignInClickHandler();
@@ -37,4 +37,4 @@ const LoginPage: React.FC = () => {
     )
 }
 
-export default LoginPage
+export default SignInPage;

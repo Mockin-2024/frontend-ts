@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import InputField from "../../../components/common/InputField";
-import Button from "../../../components/common/Button";
-import useSignInClickHandler from "../hooks/useSignInClickHandler";
+import InputField from "../../components/common/InputField";
+import Button from "../../components/common/Button";
+import useSignInClickHandler from "./hooks/useSignInClickHandler";
 import {Link} from "react-router-dom";
 
 const SignInPage: React.FC = () => {

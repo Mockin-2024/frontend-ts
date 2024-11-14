@@ -2,7 +2,7 @@ import React from 'react'
 
 const Balance = () =>{
     return(
-        <div className={"pt-16 p-4"}>
+        <div className={"pt-20 p-4"}>
             <div className={""}>
                 내 투자
             </div>

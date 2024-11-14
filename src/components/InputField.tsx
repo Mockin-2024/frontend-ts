@@ -11,7 +11,7 @@ const InputField: React.FC<InputFieldProps> = ({ type, placeholder, value, onCha
     return (
         <div className={"flex p-2 justify-center w-full"}>
             <input
-                className={"p-4 bg-indigo-300 text-2xl text-white placeholder-white " +
+                className={"p-4 bg-gray-100 text-xl " +
                     "outline-none rounded-3xl border-none w-3/4"}
                 type={type}
                 placeholder={placeholder}

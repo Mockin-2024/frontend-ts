@@ -13,7 +13,7 @@ const SignUpPage: React.FC = () => {
     const buttonOnClick = useSignInClickHandler();
 
     return (
-        <div className={"flex items-center justify-center h-screen flex-col pt-16"}>
+        <div className={"flex flex-col items-center justify-center w-full pt-4"}>
             <div className={"pb-10 text-indigo-600 text-4xl font-bold"}>
                 회원가입
             </div>
@@ -63,12 +63,12 @@ const SignUpPage: React.FC = () => {
                 onChange={e => setPasswordRe(e.target.value)}
             />
 
-            <div className={"flex text-indigo-400 text-xl"}>
+            <div className={"flex text-indigo-400 text-xl p-2"}>
                 비밀번호가 일치합니다!
             </div>
 
             <Button
-            value={"Sign Up"}
+            value={"가입하기"}
             onClick={buttonOnClick}
             />
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 
 import TopNavBar from "../../components/common/TopNavBar";
-import Balance from "./component/Balance";
+import Balance from "./components/Balance";
 
 import { IoIosArrowForward } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import InputField from "../../../components/InputField";
-import Button from "../../../components/Button";
+import InputField from "../../../components/common/InputField";
+import Button from "../../../components/common/Button";
 import useSignInClickHandler from "../hooks/useSignInClickHandler";
 
 const SignUpPage: React.FC = () => {

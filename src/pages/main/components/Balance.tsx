@@ -2,12 +2,13 @@ import React from 'react'
 import StockItem from "../../../components/item/StockItem";
 import {IoIosArrowForward} from "react-icons/io";
 import useNavigator from "../../../hooks/useNavigator";
+import {AppRoutes} from "../../../enums/AppRoutes";
 
 const Balance = () =>{
     const {navigateTo} = useNavigator()
 
     const handleStockSpec = (id: string, type: string) => {
-        navigateTo("/stock", {
+        navigateTo(AppRoutes.STOCK, {
             stockId: id,
             stockType: type
         });

@@ -4,14 +4,14 @@ interface Props {
     title: string;
     date: string;
     time: string;
-    stockName: string | null;
+    stockName: string;
     source: string;
 }
 const NewsItem: React.FC<Props> = ({title, date, time, stockName, source}) => {
     return (
         <div>
             <div className={"text-indigo-600"}>
-                {stockName ? stockName : null}
+                {stockName}
             </div>
             <div className={"text-2xl"}>
                 {title}

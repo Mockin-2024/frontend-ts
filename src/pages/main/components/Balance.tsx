@@ -1,10 +1,16 @@
 import React from 'react'
 import StockItem from "../../../components/item/StockItem";
 import {IoIosArrowForward} from "react-icons/io";
+import useStockSpecNavigator from "../hooks/useStockSpecNavigator";
 
 const Balance = () =>{
+    const {navigateStockSpec} = useStockSpecNavigator()
+
+    const handleStockSpec = (id: string, type: string) => {
+        navigateStockSpec(id, type)
+    }
     return(
-        <div className={"pt-20 p-4"}>
+        <div>
             <div className={""}>
                 내 투자
             </div>
@@ -14,11 +20,11 @@ const Balance = () =>{
                 <IoIosArrowForward/>
             </div>
 
-            <div>
-                분류 기준
+            <div className={"pt-4"}>
+                내 주식
             </div>
 
-            <div className={""}>
+            <div key={1} className={"type"} onClick={() => handleStockSpec("1", "505")}>
                 <StockItem stockName={"나스닥"} stockHolding={"3"} price={"100000"} returnRate={"0.5"}/>
             </div>
         </div>

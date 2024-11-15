@@ -10,12 +10,17 @@ const MainPage: React.FC = () => {
     return (
         <div>
             <MainTopNavBar />
-            <Balance/>
-            <div className={"flex items-center text-xl p-4"}>
-                주문내역
-                <IoIosArrowForward/>
+            <div className={"pt-20 p-4"}>
+                <Balance/>
+                <div className={"pt-4 flex items-center text-xl"}>
+                    주문내역
+                    <IoIosArrowForward/>
+                </div>
+                <div className={"pt-4"}>
+                    <News/>
+                </div>
+
             </div>
-            <News/>
         </div>
     )
 }

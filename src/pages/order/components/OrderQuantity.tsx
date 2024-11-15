@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {formatNumber} from "../../../utils/formatNumber";
 import {formatCurrency} from "../../../utils/formatCurrency";
+import useQuantity from "../hooks/useQuantity";
 
 interface Props {
     orderType: string;
@@ -8,17 +9,7 @@ interface Props {
 }
 
 const OrderQuantity: React.FC<Props> = ({ orderType, price }) => {
-    const [quantity, setQuantity] = useState<number>(1);
-    const MAX_QUANTITY = 999999999;
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const inputValue = e.target.value.replace(/,/g, '');
-
-        if (/^\d*$/.test(inputValue) || inputValue === '') {
-            const numericValue = Number(inputValue);
-            setQuantity(numericValue > MAX_QUANTITY ? MAX_QUANTITY : numericValue);
-        }
-    };
+    const {quantity, handleChange} = useQuantity()
 
     return (
         <div className={"flex flex-row items-center space-x-2"}>

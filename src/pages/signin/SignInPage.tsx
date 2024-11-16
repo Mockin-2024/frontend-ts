@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 const SignInPage: React.FC = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const buttonOnClick = useSignInClickHandler();
+    const {handleClick} = useSignInClickHandler(email, password);
 
     return (
         <div className={"flex items-center justify-center h-screen flex-col"}>
@@ -32,7 +32,7 @@ const SignInPage: React.FC = () => {
 
             <Button
             value={"로그인하기"}
-            onClick={buttonOnClick}
+            onClick={handleClick}
             />
 
             <div className={"flex p-2 text-indigo-400 text-xl"}>

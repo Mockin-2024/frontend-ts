@@ -5,4 +5,5 @@ export const enum AppRoutes {
     ORDER = "/order",
     STOCK = "/stock",
     SEARCH = "/search",
+    MY_ASSET = "/my-asset"
 }

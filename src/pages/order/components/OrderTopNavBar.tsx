@@ -2,12 +2,12 @@ import React from "react";
 
 import TopNavBar from "../../../components/common/TopNavBar";
 
-import { FiArrowLeft } from "react-icons/fi";
+import BackSpace from "../../../components/Icon/BackSpace";
 
 const OrderTopNavBar = () => {
     return (
         <TopNavBar
-            Left={FiArrowLeft}
+            Left={BackSpace}
             RightFirst={null}
             RightSecond={null}
             RightThird={null}

@@ -10,6 +10,7 @@ import MainPage from "./pages/main/MainPage";
 import StockSpecPage from "./pages/stockSpec/StockSpecPage";
 import OrderPage from "./pages/order/OrderPage";
 import SearchPage from "./pages/search/SearchPage";
+import MyAssetPage from "./pages/myasset/MyAssetPage";
 
 const App: React.FC = () => (
       <Routes>
@@ -19,6 +20,7 @@ const App: React.FC = () => (
           <Route path={AppRoutes.STOCK} element={<StockSpecPage />} />
           <Route path={AppRoutes.ORDER} element={<OrderPage />} />
           <Route path={AppRoutes.SEARCH} element={<SearchPage />} />
+          <Route path={AppRoutes.MY_ASSET} element={<MyAssetPage />} />
       </Routes>
 );
 

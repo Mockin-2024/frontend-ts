@@ -15,7 +15,7 @@ const StockItem:React.FC<Props> = ({stockName, stockHolding, price, returnRate})
                 <div>{stockHolding ?`${stockHolding}주` : null}</div>
             </div>
             <div className={"flex flex-col items-end"}>
-                <div>{price}원</div>
+                <div>{price ? `${price}원` : null}</div>
                 <div>{returnRate}%</div>
             </div>
         </div>

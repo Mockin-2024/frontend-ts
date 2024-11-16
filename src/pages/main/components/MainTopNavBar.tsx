@@ -3,7 +3,7 @@ import React from "react";
 import TopNavBar from "../../../components/common/TopNavBar";
 
 import {RxHamburgerMenu} from "react-icons/rx";
-import { IoSearch } from "react-icons/io5";
+import Search from "../../../components/Icon/Search";
 
 
 const MainTopNavBar = () => {
@@ -11,7 +11,7 @@ const MainTopNavBar = () => {
         <TopNavBar
             Left={null}
             RightFirst={null}
-            RightSecond={IoSearch}
+            RightSecond={Search}
             RightThird={RxHamburgerMenu}
         />
     )

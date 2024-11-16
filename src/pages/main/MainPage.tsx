@@ -5,6 +5,7 @@ import Balance from "./components/Balance";
 import { IoIosArrowForward } from "react-icons/io";
 import MainTopNavBar from "./components/MainTopNavBar";
 import News from "./components/News";
+import History from "./components/History";
 
 const MainPage: React.FC = () => {
     return (
@@ -12,10 +13,7 @@ const MainPage: React.FC = () => {
             <MainTopNavBar />
             <div className={"pt-20 p-4"}>
                 <Balance/>
-                <div className={"pt-4 flex items-center text-xl"}>
-                    주문내역
-                    <IoIosArrowForward/>
-                </div>
+                <History />
                 <div className={"pt-4"}>
                     <News/>
                 </div>

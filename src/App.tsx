@@ -5,13 +5,16 @@ import SignInPage from "./pages/signin/SignInPage";
 import SignUpPage from "./pages/signup/SignUpPage";
 import MainPage from "./pages/main/MainPage";
 import StockSpecPage from "./pages/stockSpec/StockSpecPage";
+import OrderPage from "./pages/order/OrderPage";
+import {AppRoutes} from "./enums/AppRoutes";
 
 const App: React.FC = () => (
       <Routes>
-          <Route path="/" element={<SignInPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/main" element={<MainPage />} />
-          <Route path="/stock" element={<StockSpecPage />} />
+          <Route path={AppRoutes.SIGN_IN} element={<SignInPage />} />
+          <Route path={AppRoutes.SIGN_UP} element={<SignUpPage />} />
+          <Route path={AppRoutes.MAIN} element={<MainPage />} />
+          <Route path={AppRoutes.STOCK} element={<StockSpecPage />} />
+          <Route path={AppRoutes.ORDER} element={<OrderPage />} />
       </Routes>
 );
 

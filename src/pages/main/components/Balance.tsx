@@ -13,13 +13,17 @@ const Balance = () =>{
             stockType: type
         });
     }
+    
+    const handleMyAsset = () => {
+        navigateTo(AppRoutes.MY_ASSET, {})
+    }
     return(
         <div>
             <div className={""}>
                 내 투자
             </div>
 
-            <div className={"flex flex-row text-3xl items-center"}>
+            <div className={"flex flex-row text-3xl items-center"} onClick={handleMyAsset}>
                 {}원
                 <IoIosArrowForward/>
             </div>

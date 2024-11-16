@@ -1,29 +1,15 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {useLocation} from "react-router-dom";
 import StockSpecTopNavBar from "./components/StockSpecTopNavBar";
 import StockInfo from "./components/StockInfo";
 import AskingPrice from "./components/AskingPrice";
 import StockDetailInfo from "./components/StockDetailInfo";
 import StockSpecBottomNavBar from "./components/StockSpecBottomNavBar";
-import useNavigator from "../../hooks/useNavigator";
-import {AppRoutes} from "../../enums/AppRoutes";
+import useSelect from "./hooks/useSelect";
 
 const StockSpecPage: React.FC = () => {
     const {stockType, stockId} = useLocation().state || {};
-    const [selectedOption, setSelectedOption] = useState<string | null>(null);
-    const {navigateTo} = useNavigator()
-
-    const handleOptionSelect = (option: string) => {
-        setSelectedOption(option);
-    };
-
-    const handleOrderSelect = (orderType: string) => {
-        navigateTo(AppRoutes.ORDER, {
-            orderType: orderType,
-            stockId: stockId,
-            price: "100000"
-        })
-    }
+    const {option, handleOptionSelect, handleOrderSelect} = useSelect(stockId)
 
     return (
         <div className={""}>
@@ -38,9 +24,9 @@ const StockSpecPage: React.FC = () => {
                 </div>
 
                 <div className={"p-4"}>
-                    {/*{selectedOption === 'chart' && </>}*/}
-                    {selectedOption === 'askingPrice' && <AskingPrice stockId={stockId} stockType={stockType} />}
-                    {selectedOption === 'detailInfo' && <StockDetailInfo/>}
+                    {/*{selected === 'chart' && </>}*/}
+                    {option === 'askingPrice' && <AskingPrice stockId={stockId} stockType={stockType} />}
+                    {option === 'detailInfo' && <StockDetailInfo/>}
                 </div>
 
                 {/*<div className={"flex p-4 w-full"}>*/}

@@ -3,12 +3,12 @@ import React from "react";
 import TopNavBar from "../../../components/common/TopNavBar";
 
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { FiArrowLeft } from "react-icons/fi";
+import BackSpace from "../../../components/Icon/BackSpace";
 
 const StockSpecTopNavBar = () => {
     return (
         <TopNavBar
-            Left={FiArrowLeft}
+            Left={BackSpace}
             RightFirst={null}
             RightSecond={null}
             RightThird={HiOutlineDotsHorizontal}

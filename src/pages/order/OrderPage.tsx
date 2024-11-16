@@ -4,6 +4,7 @@ import {useLocation} from "react-router-dom";
 import OrderPrice from "./components/OrderPrice";
 import OrderQuantity from "./components/OrderQuantity";
 import {formatNumber} from "../../utils/formatNumber";
+import OrderButton from "./components/OrderButton";
 
 const OrderPage: React.FC = () => {
     const {orderType, stockId, price} = useLocation().state
@@ -32,9 +33,7 @@ const OrderPage: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div>
-
-            </div>
+            <OrderButton orderType={orderType}/>
         </div>
     )
 }

@@ -7,4 +7,5 @@ export const enum AppRoutes {
     SEARCH = "/search",
     MY_ASSET = "/my-asset",
     HISTORY = "/history",
+    TOKEN = "/token",
 }

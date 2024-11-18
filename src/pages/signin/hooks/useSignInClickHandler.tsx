@@ -22,6 +22,7 @@ const useSignInClickHandler = (email:string, password:string) => {
         }
 
         localStorage.setItem('accessToken', data.token);
+        localStorage.setItem('email', email);
         navigateTo(AppRoutes.MAIN, {})
     }
     return {handleClick}

@@ -4,10 +4,13 @@ import {Endpoint} from "../../../enums/Endpoint";
 import {Http} from "../../../enums/Http";
 import {SearchDto} from "../dto/SearchDto";
 import StockItem from "../../../components/item/StockItem";
+import {toExchangeCode} from "../../../utils/toExchangeCode";
 
 interface Stock {
     name: string;
     rate: string;
+    excd: string;
+    symb: string;
 }
 
 interface Props {
@@ -31,7 +34,8 @@ const StockList:React.FC<Props> = ({stockName}) => {
                         stockHolding={""}
                         price={""}
                         returnRate={stock.rate}
-                    />
+                        stockId={stock.symb}
+                        exchangeCode={toExchangeCode(stock.excd)}/>
                 ))
             ) : (
                 <div>검색 가능한 주식이 없습니다.</div>

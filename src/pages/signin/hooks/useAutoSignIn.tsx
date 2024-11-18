@@ -33,7 +33,7 @@ const useAutoSignIn = () => {
             }
 
             localStorage.setItem('accessToken', data.token);
-            navigateTo(AppRoutes.MAIN, {})
+            navigateTo(AppRoutes.TOKEN, {})
         }
         validateToken()
     }, [])

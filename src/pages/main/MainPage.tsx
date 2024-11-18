@@ -2,12 +2,18 @@ import React from "react";
 
 import Balance from "./components/Balance";
 
-import { IoIosArrowForward } from "react-icons/io";
 import MainTopNavBar from "./components/MainTopNavBar";
 import News from "./components/News";
 import History from "./components/History";
+import useRestAPI from "../../hooks/useRestAPI";
+
+import {Endpoint} from "../../enums/Endpoint";
+import {Http} from "../../enums/Http";
 
 const MainPage: React.FC = () => {
+    useRestAPI(Endpoint.POST_ACCESS_TOKEN_MOCK, Http.POST, {});
+    useRestAPI(Endpoint.POST_ACCESS_TOKEN_REAL, Http.POST, {});
+
     return (
         <div>
             <MainTopNavBar />

@@ -3,9 +3,20 @@ import StockItem from "../../../components/item/StockItem";
 import {IoIosArrowForward} from "react-icons/io";
 import useNavigator from "../../../hooks/useNavigator";
 import {AppRoutes} from "../../../enums/AppRoutes";
+import useRestAPI from "../../../hooks/useRestAPI";
+import {Endpoint} from "../../../enums/Endpoint";
+import {Http} from "../../../enums/Http";
+import {ExchangeCode} from "../../../enums/ExchangeCode";
+import {CurrencyCode} from "../../../enums/CurrencyCode";
 
 const Balance = () =>{
     const {navigateTo} = useNavigator()
+    const {data, loading, error} = useRestAPI(Endpoint.GET_BALANCE, Http.GET, {
+        overseasExchangeCode: ExchangeCode.NASDAQ,
+        transactionCurrencyCode: CurrencyCode.USD,
+        continuousSearchCondition200: "",
+        continuousSearchKey200: ""
+    } )
 
     const handleStockSpec = (id: string, type: string) => {
         navigateTo(AppRoutes.STOCK, {
@@ -17,7 +28,21 @@ const Balance = () =>{
     const handleMyAsset = () => {
         navigateTo(AppRoutes.MY_ASSET, {})
     }
-    return(
+    if(loading) {
+        return (
+            <div>
+                <div className={""}>
+                    내 투자
+                </div>
+
+                <div className={"flex flex-row text-3xl items-center"} onClick={handleMyAsset}>
+                    {}원
+                    <IoIosArrowForward/>
+                </div>
+            </div>
+        );
+    }
+    return (
         <div>
             <div className={""}>
                 내 투자

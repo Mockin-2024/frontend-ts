@@ -58,7 +58,7 @@ const useRestAPI = (uri: Endpoint, method:Http, body? : object) => {
         };
 
         fetchData();
-    }, [uri, body]);
+    }, [uri]);
 
     return { data, loading, error };
 }

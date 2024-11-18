@@ -1,14 +1,17 @@
 import React from 'react'
 import SearchTopNavBar from "./components/SearchTopNavBar";
-import StockItem from "../../components/item/StockItem";
+import StockList from "./components/StockList";
 
 const SearchPage: React.FC = () => {
+    const [stockName, setStockName] = React.useState("");
     return (
         <div className={"p-4"}>
-            <SearchTopNavBar/>
-            <div className="flex pt-20">
-                <StockItem stockName={"테슬라"} stockHolding={""} price={""} returnRate={"0.5"}/>
+            <SearchTopNavBar setStockName={setStockName} stockName={stockName}/>
+            <div className="flex flex-row pt-16">
+                <div className={"font-bold"}>급상승 주식</div>
+
             </div>
+            <StockList stockName={stockName}/>
         </div>
 
     )

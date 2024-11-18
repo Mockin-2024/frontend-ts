@@ -1,9 +1,12 @@
 import React from "react";
 import BackSpace from "../../../components/Icon/BackSpace";
-import InputField from "../../../components/common/InputField";
 
-const SearchTopNavBar: React.FC = () => {
-    const [stockName, setStockName] = React.useState("");
+interface Props {
+    stockName: string;
+    setStockName: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const SearchTopNavBar: React.FC<Props> = ({stockName, setStockName}) => {
     return (
         <div className={"fixed top-0 left-0 right-0 z-10 flex p-4 justify-center items-center border-none bg-indigo-600"}>
             <div className={"text-3xl text-white pr-2"}>
@@ -17,7 +20,6 @@ const SearchTopNavBar: React.FC = () => {
                     value={stockName}
                     onChange={(e) => setStockName(e.target.value)}/>
             </div>
-
         </div>
     )
 }

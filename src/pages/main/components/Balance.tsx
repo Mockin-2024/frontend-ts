@@ -58,7 +58,7 @@ const Balance = () =>{
             </div>
 
             <div key={1} className={"type"} onClick={() => handleStockSpec("1", "505")}>
-                <StockItem stockName={"나스닥"} stockHolding={"3"} price={"100000"} returnRate={"0.5"}/>
+                {/*<StockItem stockName={"나스닥"} stockHolding={"3"} price={"100000"} returnRate={"0.5"}/>*/}
             </div>
         </div>
     )

@@ -47,7 +47,7 @@ const StockSpecPage: React.FC = () => {
                         </div>
                         <div className={"p-4"}>
                             {option === 'chart' && <StockChart  data={timePriceDataList} curr={priceInfo.curr}/>}
-                            {option === 'askingPrice' && <AskingPrice askingPriceInfo={askingPriceInfo}/>}
+                            {option === 'askingPrice' && <AskingPrice askingPriceInfo={askingPriceInfo} curr={priceInfo.curr}/>}
                             {option === 'detailInfo' && <StockDetailInfo priceInfo={priceInfo}/>}
                         </div>
                         <StockSpecBottomNavBar

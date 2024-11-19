@@ -5,7 +5,7 @@ interface CurrencyContextType {
     exchangeRates: { [key: string]: number } | null;
     loading: boolean;
     error: string | null;
-    convertToKRW: (amount: number, fromCurrency: string) => number | null;
+    convertToKRW: (amount: number, fromCurrency: string) => number;
 }
 
 const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined);
@@ -33,15 +33,9 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         fetchExchangeRates();
     }, [REACT_APP_EXCHANGE_URL]);
 
-    const convertToKRW = (amount: number, fromCurrency: string): number | null => {
-        if (!exchangeRates) {
-            return null;
-        }
+    const convertToKRW = (amount: number, fromCurrency: string): number=> {
+        const rate = exchangeRates!![fromCurrency];
 
-        const rate = exchangeRates[fromCurrency];
-        if (!rate) {
-            return null;
-        }
         return Math.round(amount / rate); // 해당 통화를 KRW로 변환
     };
 

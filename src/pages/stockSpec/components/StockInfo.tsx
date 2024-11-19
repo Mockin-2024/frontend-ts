@@ -1,5 +1,6 @@
 import React from 'react'
 import {PriceInfo} from "../type/PriceInfo";
+import {formatNumber} from "../../../utils/formatNumber";
 
 interface Props{
     name:string;
@@ -19,7 +20,7 @@ const StockInfo: React.FC<Props> = ({name, priceInfo, type}) => {
                 </div>
             </div>
             <div className={"text-4xl"}>
-                {priceInfo.t_xprc}원
+                {formatNumber(Number(priceInfo.t_xprc))}원
             </div>
         </div>
     )

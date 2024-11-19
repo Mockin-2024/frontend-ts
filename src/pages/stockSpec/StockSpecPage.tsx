@@ -50,11 +50,14 @@ const StockSpecPage: React.FC = () => {
                             {option === 'askingPrice' && <AskingPrice askingPriceInfo={askingPriceInfo}/>}
                             {option === 'detailInfo' && <StockDetailInfo priceInfo={priceInfo}/>}
                         </div>
+                        <StockSpecBottomNavBar
+                            handleOrderSelect={handleOrderSelect}
+                            exchangeCode={searchInfo.ovrs_excg_cd}
+                            price={priceInfo.last}
+                            stockName={searchInfo.prdt_name}/>
                     </>
                 )}
             </div>
-
-            <StockSpecBottomNavBar handleOrderSelect={handleOrderSelect}/>
         </div>
 
     )

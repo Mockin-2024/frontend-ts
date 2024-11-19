@@ -4,13 +4,21 @@ import {Endpoint} from "../../../enums/Endpoint";
 import {Http} from "../../../enums/Http";
 
 const useSearchInfo = (stockType: StockType, stockId:string) => {
-    const {data} = useRestAPI(Endpoint.GET_SEARCH_INFO, Http.GET, {
+    const {data, loading, error} = useRestAPI(Endpoint.GET_SEARCH_INFO, Http.GET, {
         prdtTypeCd: stockType,
         pdno: stockId
     })
-    const searchInfo = data.output
 
-    return {searchInfo}
+    if (loading) {
+        return { searchInfo: null, loading: true, error: null };
+    }
+
+    if (error) {
+        return { searchInfo: null, loading: false, error };
+    }
+
+    const searchInfo = data.output;
+    return { searchInfo, loading: false, error: null };
 }
 
 export default useSearchInfo

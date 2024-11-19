@@ -4,7 +4,7 @@ import {AppRoutes} from "../../../enums/AppRoutes";
 import {ExchangeCode} from "../../../enums/ExchangeCode";
 
 const useSelect = (stockId:string) => {
-    const [option, setOption] = useState<string | null>(null);
+    const [option, setOption] = useState<string | null>("chart");
     const {navigateTo} = useNavigator()
 
     const handleOptionSelect = (option: string) => {

@@ -46,7 +46,7 @@ const StockSpecPage: React.FC = () => {
                             <div onClick={() => handleOptionSelect('detailInfo')}>종목 정보</div>
                         </div>
                         <div className={"p-4"}>
-                            {option === 'chart' && <StockChart  data={timePriceDataList}/>}
+                            {option === 'chart' && <StockChart  data={timePriceDataList} curr={priceInfo.curr}/>}
                             {option === 'askingPrice' && <AskingPrice askingPriceInfo={askingPriceInfo}/>}
                             {option === 'detailInfo' && <StockDetailInfo priceInfo={priceInfo}/>}
                         </div>

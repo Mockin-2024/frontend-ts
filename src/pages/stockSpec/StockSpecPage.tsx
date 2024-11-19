@@ -12,16 +12,20 @@ import useSearchInfo from "./hooks/useSearchInfo";
 import LoadingOrError from "../../components/common/LoadingOrError";
 import usePrice from "./hooks/usePrice";
 import useAskingPrice from "./hooks/useAskingPrice";
+import useTimePrice from "./hooks/useTimePrice";
+import StockChart from "./components/StockChart";
 
 const StockSpecPage: React.FC = () => {
     const { stockType, stockId } = useLocation().state || {};
     const { option, handleOptionSelect, handleOrderSelect } = useSelect(stockId)
+
     const { searchInfo, loading: loadingSearchInfo, error: errorSearchInfo } = useSearchInfo(stockType, stockId)
     const { priceInfo, loading: loadingPrice, error: errorPrice } = usePrice(stockType, stockId)
     const { askingPriceInfo, loading: loadingAskingPrice, error: errorAskingPrice} = useAskingPrice(stockType, stockId)
+    const { timePriceDataList, loading: loadingTimePrice, error: errorTimePrice} = useTimePrice(stockType, stockId)
 
-    const isLoading = loadingSearchInfo || loadingPrice || loadingAskingPrice;
-    const isError = errorSearchInfo || errorPrice || errorAskingPrice;
+    const isLoading = loadingSearchInfo || loadingPrice || loadingAskingPrice || loadingTimePrice;
+    const isError = errorSearchInfo || errorPrice || errorAskingPrice || errorTimePrice;
 
     return (
         <div className={""}>
@@ -29,7 +33,7 @@ const StockSpecPage: React.FC = () => {
             <StockSpecTopNavBar/>
 
             <div className={"pt-20 p-4"}>
-                {!isLoading && !isError && searchInfo && priceInfo && askingPriceInfo && (
+                {!isLoading && !isError && searchInfo && priceInfo && askingPriceInfo && timePriceDataList &&(
                     <>
                         <StockInfo
                             name={searchInfo.prdt_name}
@@ -42,6 +46,7 @@ const StockSpecPage: React.FC = () => {
                             <div onClick={() => handleOptionSelect('detailInfo')}>종목 정보</div>
                         </div>
                         <div className={"p-4"}>
+                            {option === 'chart' && <StockChart  data={timePriceDataList}/>}
                             {option === 'askingPrice' && <AskingPrice askingPriceInfo={askingPriceInfo}/>}
                             {option === 'detailInfo' && <StockDetailInfo priceInfo={priceInfo}/>}
                         </div>

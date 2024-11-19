@@ -7,7 +7,7 @@ import {formatNumber} from "../../utils/formatNumber";
 import OrderButton from "./components/OrderButton";
 
 const OrderPage: React.FC = () => {
-    const {orderType, stockId, price} = useLocation().state
+    const {orderType, stockId, price, exchangeCode, stockName} = useLocation().state
     const [curPrice, setCurPrice] = useState(price);
 
     return (
@@ -15,7 +15,7 @@ const OrderPage: React.FC = () => {
             <OrderTopNavBar/>
             <div className={"pt-20 p-4"}>
                 <div className={"pb-4 text-2xl"}>
-                    {stockId}
+                    {stockName}{exchangeCode}
                 </div>
 
                 <div className={"bg-gray-100 rounded-2xl p-2"}>

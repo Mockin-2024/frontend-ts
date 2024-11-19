@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
+import {CurrencyProvider} from "./context/CurrencyContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,8 +16,10 @@ root.render(
             v7_relativeSplatPath: true,
             v7_startTransition: true,
         }}>
+        <CurrencyProvider>
+            <App />
+        </CurrencyProvider>
 
-        <App />
     </BrowserRouter>
 );
 

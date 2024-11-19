@@ -1,12 +1,13 @@
 import React from 'react'
+import {PriceInfo} from "../type/PriceInfo";
 
 interface Props{
     name:string;
-    price:string;
+    priceInfo: PriceInfo;
     type:string;
 }
 
-const StockInfo: React.FC<Props> = ({name, price, type}) => {
+const StockInfo: React.FC<Props> = ({name, priceInfo, type}) => {
     return(
         <div className={"flex flex-col"}>
             <div className={"flex flex-row"}>
@@ -18,7 +19,7 @@ const StockInfo: React.FC<Props> = ({name, price, type}) => {
                 </div>
             </div>
             <div className={"text-4xl"}>
-                {price}원
+                {priceInfo.t_xprc}원
             </div>
         </div>
     )

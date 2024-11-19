@@ -1,6 +1,10 @@
 import React from "react";
+import {PriceInfo} from "../type/PriceInfo";
 
-const StockDetailInfo: React.FC = () => {
+interface Props{
+    priceInfo: PriceInfo;
+}
+const StockDetailInfo: React.FC<Props> = ({priceInfo}) => {
     return (
         <div>
             <div>
@@ -10,21 +14,21 @@ const StockDetailInfo: React.FC = () => {
                 <div className={"flex flex-col w-full pr-2 border-r border-r-gray-300"}>
                     <div className={"flex flex-row justify-between"}>
                         <div>시작가</div>
-                        <div>100000원</div>
+                        <div>{priceInfo.open}{priceInfo.curr}</div>
                     </div>
                     <div className={"flex flex-row justify-between"}>
                         <div>종가</div>
-                        <div>100000원</div>
+                        <div>{priceInfo.last}{priceInfo.curr}</div>
                     </div>
                 </div>
                 <div className={"flex flex-col w-full pl-2"}>
                     <div className={"flex flex-row justify-between"}>
                         <div>거래량</div>
-                        <div>11주</div>
+                        <div>{priceInfo.tvol}주</div>
                     </div>
                     <div className={"flex flex-row justify-between"}>
                         <div>거래대금</div>
-                        <div>10000000원</div>
+                        <div>{priceInfo.tamt}{priceInfo.curr}</div>
                     </div>
                 </div>
             </div>

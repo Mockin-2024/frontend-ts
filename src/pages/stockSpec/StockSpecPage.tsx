@@ -27,23 +27,21 @@ const StockSpecPage: React.FC = () => {
             <StockSpecTopNavBar/>
 
             <div className={"pt-20 p-4"}>
-                {!isLoading && !isError && searchInfo && (
+                {!isLoading && !isError && searchInfo && priceInfo &&(
                     <>
                         <StockInfo
                             name={searchInfo.prdt_name}
-                            price={priceInfo.last}
+                            priceInfo={priceInfo}
                             type={searchInfo.ovrs_excg_name}
-                            currency={priceInfo.curr}
                         />
                         <div className={"flex p-4 justify-between "}>
                             <div onClick={() => handleOptionSelect('chart')}>차트</div>
                             <div onClick={() => handleOptionSelect('askingPrice')}>호가</div>
                             <div onClick={() => handleOptionSelect('detailInfo')}>종목 정보</div>
                         </div>
-
                         <div className={"p-4"}>
                             {option === 'askingPrice' && <AskingPrice stockId={stockId} stockType={stockType} />}
-                            {option === 'detailInfo' && <StockDetailInfo/>}
+                            {option === 'detailInfo' && <StockDetailInfo priceInfo={priceInfo}/>}
                         </div>
                     </>
                 )}

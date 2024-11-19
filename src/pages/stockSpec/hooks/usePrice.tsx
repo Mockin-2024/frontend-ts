@@ -4,6 +4,7 @@ import {Http} from "../../../enums/Http";
 import {Endpoint} from "../../../enums/Endpoint";
 import {StockType} from "../../../enums/StockType";
 import {convertStockTypeToExchangeCode} from "../../../utils/convertStockTypeToExchangeCode";
+import {PriceInfo} from "../type/PriceInfo";
 
 const usePrice = (stockType: StockType, stockId: string) => {
     const {data, loading, error} = useRestAPI(Endpoint.GET_PRICE_DETAIL, Http.GET, {
@@ -19,7 +20,7 @@ const usePrice = (stockType: StockType, stockId: string) => {
         return { priceInfo: null, loading: false, error };
     }
 
-    const priceInfo = data.output;
+    const priceInfo: PriceInfo = data.output;
     return { priceInfo, loading: false, error: null };
 }
 

@@ -1,13 +1,13 @@
 import React from 'react'
+import {PriceInfo} from "../type/PriceInfo";
 
 interface Props{
     name:string;
-    price:string;
+    priceInfo: PriceInfo;
     type:string;
-    currency:string;
 }
 
-const StockInfo: React.FC<Props> = ({name, price, type, currency}) => {
+const StockInfo: React.FC<Props> = ({name, priceInfo, type}) => {
     return(
         <div className={"flex flex-col"}>
             <div className={"flex flex-row"}>
@@ -19,9 +19,7 @@ const StockInfo: React.FC<Props> = ({name, price, type, currency}) => {
                 </div>
             </div>
             <div className={"text-4xl"}>
-                {/*TODO: 한국 통화 기준으로 보여주고, 원래 가격은 작게 표시하기*/}
-                {price}{currency}  
-                
+                {priceInfo.t_xprc}원
             </div>
         </div>
     )

@@ -1,13 +1,13 @@
 import React from "react";
 import AskingPriceItem from "../../../components/item/AskingPriceItem";
-import {StockType} from "../../../enums/StockType";
 import {AskingPriceInfo} from "../type/AskingPriceInfo";
 
 interface Props {
     askingPriceInfo: AskingPriceInfo
+    curr: string;
 }
 
-const AskingPrice:React.FC<Props> = ({askingPriceInfo}) => {
+const AskingPrice:React.FC<Props> = ({askingPriceInfo, curr}) => {
 
     return (
         <div>
@@ -20,6 +20,7 @@ const AskingPrice:React.FC<Props> = ({askingPriceInfo}) => {
                         buyVolume={askingPriceInfo[`vbid${i}` as keyof AskingPriceInfo]}
                         sellVolume={askingPriceInfo[`vask${i}` as keyof AskingPriceInfo]}
                         sellChange={askingPriceInfo[`dask${i}` as keyof AskingPriceInfo]}
+                        curr={curr}
                     />
                 );
             })}

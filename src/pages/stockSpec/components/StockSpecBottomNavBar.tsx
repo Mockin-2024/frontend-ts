@@ -12,7 +12,6 @@ interface Props{
 }
 
 const StockSpecBottomNavBar: React.FC<Props> = ({stockName, handleOrderSelect, exchangeCode, price}) => {
-    console.log(exchangeCode)
     return (
         <div className={"fixed bottom-0 left-0 right-0 flex justify-between p-4"}>
             <div className={"rounded-2xl bg-blue-600 text-white px-10 py-4 w-full text-center mx-2"}

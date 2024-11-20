@@ -1,9 +1,10 @@
 import React from 'react'
+
 import {formatNumber} from "../../../utils/formatNumber";
 import useIsEditing from "../hooks/useIsEditing";
 
 interface Props{
-    price:string;
+    price:number;
     setCurPrice: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -24,7 +25,7 @@ const OrderPrice: React.FC<Props> = ({price, setCurPrice}) => {
                 />
             ) : (
                 <div className={"text-3xl cursor-pointer"} onClick={handleClick}>
-                    {formatNumber(Number(price))}원
+                    {formatNumber(price)}원
                 </div>
             )}
         </div>

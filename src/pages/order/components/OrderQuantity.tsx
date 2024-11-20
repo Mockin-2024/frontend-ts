@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {formatNumber} from "../../../utils/formatNumber";
 import {formatCurrency} from "../../../utils/formatCurrency";
-import useQuantity from "../hooks/useQuantity";
 
 interface Props {
     orderType: string;
     price: number;
+    quantity: number;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const OrderQuantity: React.FC<Props> = ({ orderType, price }) => {
-    const {quantity, handleChange} = useQuantity()
+const OrderQuantity: React.FC<Props> = ({ orderType, price, quantity, handleChange}) => {
 
     return (
         <div className={"flex flex-row items-center space-x-2"}>
@@ -21,7 +21,7 @@ const OrderQuantity: React.FC<Props> = ({ orderType, price }) => {
                 onChange={handleChange}
             />
             <div className={"flex font-semibold"}>
-                {formatCurrency(Number(price) * quantity)}원
+                {formatCurrency(price * quantity)}원
             </div>
         </div>
     );

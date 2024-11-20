@@ -54,7 +54,9 @@ const StockSpecPage: React.FC = () => {
                             handleOrderSelect={handleOrderSelect}
                             exchangeCode={searchInfo.ovrs_excg_cd}
                             price={priceInfo.last}
-                            stockName={searchInfo.prdt_name}/>
+                            stockName={searchInfo.prdt_name}
+                            curr={priceInfo.curr}
+                        />
                     </>
                 )}
             </div>

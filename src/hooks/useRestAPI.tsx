@@ -5,7 +5,7 @@ import {Endpoint} from "../enums/Endpoint";
 
 const { REACT_APP_API_URL } = process.env;
 
-const getToken = (): string | null => {
+export const getToken = (): string | null => {
     return localStorage.getItem("accessToken");
 };
 

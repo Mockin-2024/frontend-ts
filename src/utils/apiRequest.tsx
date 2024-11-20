@@ -1,11 +1,20 @@
 import axios, {AxiosRequestConfig} from 'axios';
 import {Endpoint} from "../enums/Endpoint";
 import {Http} from "../enums/Http";
+import {getToken} from "../hooks/useRestAPI";
 
 const { REACT_APP_API_URL } = process.env; // API 기본 URL
 
-const apiRequest = async (uri: Endpoint, method: Http, body?: object) => {
+const apiRequest = async (uri: Endpoint, method: Http, body?: object, auth: boolean = false) => {
     const config: AxiosRequestConfig = {};
+
+    if(auth){
+        const token = getToken();
+        config.headers = {
+            Authorization: token ? `Bearer ${token}` : undefined,
+        };
+    }
+
 
     try {
         let response;

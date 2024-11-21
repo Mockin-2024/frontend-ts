@@ -27,13 +27,12 @@ const useOrder = (exchangeCode: ExchangeCode, stockId: string,) => {
             productNumber: stockId,
             orderQuantity: quantity,
             overseasOrderUnitPrice:price
-        })
+        }, true)
 
         if (error){
             await Alert(`${orderType} 실패`, error.toString(), AlertIcon.ERROR)
             return;
         }
-        console.log(data)
         await Alert(`${orderType} 성공`, ` `, AlertIcon.ERROR)
     }
     return {orderHandler}

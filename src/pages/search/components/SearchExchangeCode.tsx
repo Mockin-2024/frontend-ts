@@ -17,7 +17,7 @@ const SearchExchangeCode: React.FC<Props> = ({exchangeCodeKor, selectExchangeCod
                     className="border-none text-xl rounded bg-gray-100"
                 >
                     {Object.entries(ExchangeCodeKor).map(([key, value]) => (
-                        <option key={key} value={key} className={"bg-gray-100"}>
+                        <option key={key} value={value} className={"bg-gray-100"}>
                             {value}
                         </option>
                     ))}

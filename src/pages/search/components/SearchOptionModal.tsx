@@ -3,12 +3,22 @@ import SearchOption from "./SearchOption";
 import useRange from "../hooks/useRange";
 import useExchangeCodeKor from "../hooks/useExchangeCodeKor";
 import SearchExchangeCode from "./SearchExchangeCode";
+import {ExchangeCodeKor} from "../../../enums/ExchangeCodeKor";
 
 interface Props{
     closeModal: () => void;
+    searchByOption: (
+        exchangeCode: ExchangeCodeKor,
+        startRangePrice: number,
+        endRangePrice: number,
+        isCheckPrice: boolean,
+        startRangeRate: number,
+        endRangeRate: number,
+        isCheckRate: boolean,
+    ) => void;
 }
 
-const SearchOptionModal: React.FC<Props> = ({closeModal}) => {
+const SearchOptionModal: React.FC<Props> = ({closeModal, searchByOption}) => {
     const {
         optionName: optionNamePrice,
         startRange: startRangePrice,
@@ -34,6 +44,7 @@ const SearchOptionModal: React.FC<Props> = ({closeModal}) => {
         exchangeCodeKor,
         selectExchangeCodeKor
     } = useExchangeCodeKor()
+
     return (
         <div className={"fixed inset-0 bg-black bg-opacity-50 flex items-end justify-center"}
         onClick={closeModal}>
@@ -71,7 +82,20 @@ const SearchOptionModal: React.FC<Props> = ({closeModal}) => {
                          onClick={closeModal}>
                         닫기
                     </div>
-                    <div className={`rounded-2xl bg-indigo-600 text-white px-4 py-4 w-full text-center mx-2`}>
+                    <div
+                        className={`rounded-2xl bg-indigo-600 text-white px-4 py-4 w-full text-center mx-2`}
+                        onClick={() => {
+                            searchByOption(
+                                exchangeCodeKor,
+                                startRangePrice,
+                                endRangePrice,
+                                isCheckPrice,
+                                startRangeRate,
+                                endRangeRate,
+                                isCheckRate
+                            );
+                            closeModal()}
+                    }>
                         검색하기
                     </div>
                 </div>

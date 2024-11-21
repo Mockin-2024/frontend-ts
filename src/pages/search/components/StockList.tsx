@@ -1,33 +1,23 @@
 import React from "react";
-import useRestAPI from "../../../hooks/useRestAPI";
-import {Endpoint} from "../../../enums/Endpoint";
-import {Http} from "../../../enums/Http";
-import {SearchDto} from "../dto/SearchDto";
+
 import StockItem from "../../../components/item/StockItem";
 import {toExchangeCode} from "../../../utils/toExchangeCode";
-
-interface Stock {
-    name: string;
-    rate: string;
-    excd: string;
-    symb: string;
-}
+import {StockData} from "../type/StockData";
 
 interface Props {
     stockName: string;
+    stockList: StockData[]
 }
 
-const StockList:React.FC<Props> = ({stockName}) => {
-    const {data, loading, error} = useRestAPI(Endpoint.GET_SEARCH, Http.GET, SearchDto)
-
-    const filteredStocks = data?.output2.filter((stock: Stock) =>
+const StockList:React.FC<Props> = ({stockName, stockList}) => {
+    const filteredStocks = stockList?.filter((stock) =>
         stock.name.toLowerCase().includes(stockName.toLowerCase())
-    );
+    ) || [];
 
     return(
         <div>
-            {data? (
-                filteredStocks.slice(0, 5).map((stock: Stock) => (
+            {stockList.length > 0 ? (
+                filteredStocks.slice(0, 30).map((stock) => (
                     <StockItem
                         key={stock.name}
                         stockName={stock.name}

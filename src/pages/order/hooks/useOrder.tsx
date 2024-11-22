@@ -9,13 +9,16 @@ import {OrderType} from "../../../enums/OrderType";
 
 import {toOrderTransactionId} from "../../../utils/toOrderTransactionId";
 import {useCurrency} from "../../../context/CurrencyContext";
+import useNavigator from "../../../hooks/useNavigator";
+import {useNavigate} from "react-router-dom";
 
 export interface OrderHandler {
     (orderType: OrderType, quantity: string, price: string): Promise<void>;
 }
 
-const useOrder = (exchangeCode: ExchangeCode, stockId: string,) => {
+const useOrder = (exchangeCode: ExchangeCode, stockId: string, curr: string) => {
     const {convertFromKRW} = useCurrency()
+    const navigateTo = useNavigate()
     const orderHandler: OrderHandler = async (
         orderType: OrderType,
         quantity: string,
@@ -26,14 +29,15 @@ const useOrder = (exchangeCode: ExchangeCode, stockId: string,) => {
             overseasExchangeCode: exchangeCode,
             productNumber: stockId,
             orderQuantity: quantity,
-            overseasOrderUnitPrice:price
+            overseasOrderUnitPrice:convertFromKRW(Number(price), curr).toString()
         }, true)
 
         if (error){
             await Alert(`${orderType} 실패`, error.toString(), AlertIcon.ERROR)
             return;
         }
-        await Alert(`${orderType} 성공`, ` `, AlertIcon.ERROR)
+        await Alert(`${orderType} 성공`, ` `, AlertIcon.SUCCESS)
+        navigateTo(-1)
     }
     return {orderHandler}
 }

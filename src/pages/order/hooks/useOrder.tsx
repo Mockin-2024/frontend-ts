@@ -9,7 +9,6 @@ import {OrderType} from "../../../enums/OrderType";
 
 import {toOrderTransactionId} from "../../../utils/toOrderTransactionId";
 import {useCurrency} from "../../../context/CurrencyContext";
-import useNavigator from "../../../hooks/useNavigator";
 import {useNavigate} from "react-router-dom";
 
 export interface OrderHandler {
@@ -24,7 +23,7 @@ const useOrder = (exchangeCode: ExchangeCode, stockId: string, curr: string) => 
         quantity: string,
         price: string
         ) => {
-        const {data, error} = await apiRequest(Endpoint.POST_ORDER, Http.POST, {
+        const {error} = await apiRequest(Endpoint.POST_ORDER, Http.POST, {
             transactionId: toOrderTransactionId(exchangeCode, orderType),
             overseasExchangeCode: exchangeCode,
             productNumber: stockId,

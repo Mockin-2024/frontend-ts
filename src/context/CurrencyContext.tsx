@@ -45,7 +45,7 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const convertFromKRW = (amount: number, toCurrency: string): number => {
         const rate = exchangeRates!![toCurrency];
 
-        return Math.round(amount * rate);
+        return amount * rate;
     };
 
     return (

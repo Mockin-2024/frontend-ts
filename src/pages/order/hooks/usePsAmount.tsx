@@ -19,7 +19,7 @@ const usePsAmount = (exchangeCode: ExchangeCode, stockId: string, price:string) 
     }
 
     if (error) {
-        return { psamount: null, loading: false, error };
+        return { psamount: {ord_psbl_qty:0}, loading: false, error };
     }
 
     const psamount: psamountData = data.output;

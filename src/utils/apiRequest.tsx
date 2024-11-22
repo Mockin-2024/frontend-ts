@@ -39,7 +39,14 @@ const apiRequest = async (uri: Endpoint, method: Http, body?: object, auth: bool
 
         return { data: response.data, error: null };
     } catch (error) {
-        return { data: null, error: error };
+        let errorMessage = '알 수 없는 오류가 발생했습니다.';
+
+        if (axios.isAxiosError(error) && error.response) {
+            const { data } = error.response;
+            errorMessage = data.message;
+        }
+
+        return { data: null, error: errorMessage };
     }
 };
 

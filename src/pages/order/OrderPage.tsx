@@ -21,7 +21,7 @@ const OrderPage: React.FC = () => {
     const {orderType, stockId, price, exchangeCode, stockName, curr} = useLocation().state
 
     const {quantity, handleChange} = useQuantity()
-    const {orderHandler} = useOrder(exchangeCode, stockId)
+    const {orderHandler} = useOrder(exchangeCode, stockId, curr)
     const {convertToKRW} = useCurrency()
     const {isOpen, openModal, closeModal} = useModal()
     const [curPrice, setCurPrice] = useState(convertToKRW(Number(price), curr));
@@ -33,9 +33,9 @@ const OrderPage: React.FC = () => {
 
     return (
         <div>
-            <LoadingOrError loading={isLoading} error={isError} />
+            <LoadingOrError loading={isLoading} error={null} />
             <OrderTopNavBar/>
-            {!isLoading && !isError && psamount && (
+            {!isLoading && psamount && (
                 <>
                     <div className={"pt-20 p-4"}>
                         <div className={"flex flex-row pb-4"}>

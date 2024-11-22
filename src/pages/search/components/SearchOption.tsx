@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent} from "react";
 import CheckNo from "../../../components/Icon/CheckNo";
 import CheckYes from "../../../components/Icon/CheckYes";
 

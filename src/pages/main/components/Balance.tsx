@@ -1,17 +1,19 @@
 import React from 'react'
-import StockItem from "../../../components/item/StockItem";
-import {IoIosArrowForward} from "react-icons/io";
+
 import useNavigator from "../../../hooks/useNavigator";
-import {AppRoutes} from "../../../enums/AppRoutes";
 import useRestAPI from "../../../hooks/useRestAPI";
+
+import {AppRoutes} from "../../../enums/AppRoutes";
 import {Endpoint} from "../../../enums/Endpoint";
 import {Http} from "../../../enums/Http";
 import {ExchangeCode} from "../../../enums/ExchangeCode";
 import {CurrencyCode} from "../../../enums/CurrencyCode";
 
+import {IoIosArrowForward} from "react-icons/io";
+
 const Balance = () =>{
     const {navigateTo} = useNavigator()
-    const {data, loading, error} = useRestAPI(Endpoint.GET_BALANCE, Http.GET, {
+    const {loading} = useRestAPI(Endpoint.GET_BALANCE, Http.GET, {
         overseasExchangeCode: ExchangeCode.NASDAQ,
         transactionCurrencyCode: CurrencyCode.USD,
         continuousSearchCondition200: "",

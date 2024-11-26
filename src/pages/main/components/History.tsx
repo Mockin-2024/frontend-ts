@@ -1,8 +1,10 @@
-import {IoIosArrowForward} from "react-icons/io";
 import React from "react";
+
 import useNavigator from "../../../hooks/useNavigator";
+
 import {AppRoutes} from "../../../enums/AppRoutes";
 
+import {IoIosArrowForward} from "react-icons/io";
 
 const History = () => {
     const {navigateTo} = useNavigator()

@@ -1,18 +1,18 @@
 import React from 'react'
 
+import {useLocation} from "react-router-dom";
+import useSelect from "./hooks/useSelect";
+import useSearchInfo from "./hooks/useSearchInfo";
+import usePrice from "./hooks/usePrice";
+import useAskingPrice from "./hooks/useAskingPrice";
+import useTimePrice from "./hooks/useTimePrice";
+
 import StockSpecTopNavBar from "./components/StockSpecTopNavBar";
 import StockInfo from "./components/StockInfo";
 import AskingPrice from "./components/AskingPrice";
 import StockDetailInfo from "./components/StockDetailInfo";
 import StockSpecBottomNavBar from "./components/StockSpecBottomNavBar";
-
-import {useLocation} from "react-router-dom";
-import useSelect from "./hooks/useSelect";
-import useSearchInfo from "./hooks/useSearchInfo";
 import LoadingOrError from "../../components/common/LoadingOrError";
-import usePrice from "./hooks/usePrice";
-import useAskingPrice from "./hooks/useAskingPrice";
-import useTimePrice from "./hooks/useTimePrice";
 import StockChart from "./components/StockChart";
 
 const StockSpecPage: React.FC = () => {

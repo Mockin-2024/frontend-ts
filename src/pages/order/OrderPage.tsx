@@ -1,19 +1,21 @@
 import React, {useState} from 'react'
 
 import {useLocation} from "react-router-dom";
+import {useCurrency} from "../../context/CurrencyContext";
 import useQuantity from "./hooks/useQuantity";
+import usePsAmount from "./hooks/usePsAmount";
+import useOrder from "./hooks/useOrder";
+import useModal from "../../hooks/useModal";
 
 import OrderTopNavBar from "./components/OrderTopNavBar";
 import OrderPrice from "./components/OrderPrice";
 import OrderQuantity from "./components/OrderQuantity";
 import OrderButton from "./components/OrderButton";
-import useOrder from "./hooks/useOrder";
-import {useCurrency} from "../../context/CurrencyContext";
-import usePsAmount from "./hooks/usePsAmount";
 import LoadingOrError from "../../components/common/LoadingOrError";
-import {OrderType} from "../../enums/OrderType";
 import OrderInfo from "./components/OrderInfo";
-import useModal from "../../hooks/useModal";
+
+import {OrderType} from "../../enums/OrderType";
+
 import {formatNumber} from "../../utils/formatNumber";
 
 

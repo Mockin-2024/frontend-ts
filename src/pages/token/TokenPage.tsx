@@ -1,9 +1,10 @@
 import React, {useEffect} from "react";
+
 import useRestAPI from "../../hooks/useRestAPI";
+import useNavigator from "../../hooks/useNavigator";
 
 import {Endpoint} from "../../enums/Endpoint";
 import {Http} from "../../enums/Http";
-import useNavigator from "../../hooks/useNavigator";
 import {AppRoutes} from "../../enums/AppRoutes";
 
 const TokenPage:React.FC = () => {

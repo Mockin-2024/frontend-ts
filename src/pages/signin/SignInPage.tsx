@@ -1,9 +1,12 @@
 import React, {useState} from "react";
-import InputField from "../../components/common/InputField";
-import Button from "../../components/common/Button";
+
 import useSignInClickHandler from "./hooks/useSignInClickHandler";
 import useAutoSignIn from "./hooks/useAutoSignIn";
 import useNavigator from "../../hooks/useNavigator";
+
+import InputField from "../../components/common/InputField";
+import Button from "../../components/common/Button";
+
 import {AppRoutes} from "../../enums/AppRoutes";
 
 const SignInPage: React.FC = () => {

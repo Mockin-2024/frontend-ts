@@ -13,6 +13,7 @@ import SearchPage from "./pages/search/SearchPage";
 import MyAssetPage from "./pages/myasset/MyAssetPage";
 import HistoryPage from "./pages/history/HistoryPage";
 import TokenPage from "./pages/token/TokenPage";
+import NewsPage from "./pages/news/NewsPage";
 
 const App: React.FC = () => (
       <Routes>
@@ -25,6 +26,7 @@ const App: React.FC = () => (
           <Route path={AppRoutes.MY_ASSET} element={<MyAssetPage />} />
           <Route path={AppRoutes.HISTORY} element={<HistoryPage />} />
           <Route path={AppRoutes.TOKEN} element={<TokenPage />} />
+          <Route path={AppRoutes.NEWS} element={<NewsPage />} />
       </Routes>
 );
 

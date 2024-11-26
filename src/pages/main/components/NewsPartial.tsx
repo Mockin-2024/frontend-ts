@@ -18,7 +18,6 @@ const NewsPartial: React.FC<Props> = ({newsList, moreNews}) => {
                     <div>
                         <NewsItem
                             title={item.title}
-                            date={item.data_dt}
                             time={item.data_tm}
                             stockName={item.symb_name}
                             source={item.source}

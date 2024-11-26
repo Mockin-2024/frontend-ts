@@ -1,7 +1,9 @@
 import React from "react";
+
 import {NewsData} from "../main/types/NewsData";
 import NewsItem from "../../components/item/NewsItem";
 import NewsTopNavBar from "./components/NewsTopNavBar";
+
 import {useLocation} from "react-router-dom";
 
 const NewsPage: React.FC = () => {
@@ -19,7 +21,6 @@ const NewsPage: React.FC = () => {
                         <div>
                             <NewsItem
                                 title={item.title}
-                                date={item.data_dt}
                                 time={item.data_tm}
                                 stockName={item.symb_name}
                                 source={item.source}

@@ -1,23 +1,23 @@
 import React from "react";
+import {calculateTimeDifference} from "../../utils/calculateTimeDifferece";
 
 interface Props {
     title: string;
-    date: string;
     time: string;
     stockName: string;
     source: string;
 }
-const NewsItem: React.FC<Props> = ({title, date, time, stockName, source}) => {
+const NewsItem: React.FC<Props> = ({title, time, stockName, source}) => {
     return (
-        <div>
-            <div className={"text-indigo-600"}>
+        <div className={"pb-8"}>
+            <div className={"text-xs text-indigo-600"}>
                 {stockName}
             </div>
-            <div className={"text-2xl"}>
+            <div className={"text-base"}>
                 {title}
             </div>
-            <div className={"text-gray-400"}>
-                {source}.{time}
+            <div className={"pt-2 text-xs text-gray-400"}>
+                {source}.{calculateTimeDifference(time)}
             </div>
         </div>
     )

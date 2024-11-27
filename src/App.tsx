@@ -14,19 +14,22 @@ import MyAssetPage from "./pages/myasset/MyAssetPage";
 import HistoryPage from "./pages/history/HistoryPage";
 import TokenPage from "./pages/token/TokenPage";
 import NewsPage from "./pages/news/NewsPage";
+import FavoritePage from "./pages/favorite/FavoritePage";
+import {FavoriteProvider} from "./context/FavoriteContext";
 
 const App: React.FC = () => (
       <Routes>
           <Route path={AppRoutes.SIGN_IN} element={<SignInPage />} />
           <Route path={AppRoutes.SIGN_UP} element={<SignUpPage />} />
           <Route path={AppRoutes.MAIN} element={<MainPage />} />
-          <Route path={AppRoutes.STOCK} element={<StockSpecPage />} />
+          <Route path={AppRoutes.STOCK} element={<FavoriteProvider><StockSpecPage /></FavoriteProvider>} />
           <Route path={AppRoutes.ORDER} element={<OrderPage />} />
           <Route path={AppRoutes.SEARCH} element={<SearchPage />} />
           <Route path={AppRoutes.MY_ASSET} element={<MyAssetPage />} />
           <Route path={AppRoutes.HISTORY} element={<HistoryPage />} />
           <Route path={AppRoutes.TOKEN} element={<TokenPage />} />
           <Route path={AppRoutes.NEWS} element={<NewsPage />} />
+          <Route path={AppRoutes.FAVORITE} element={<FavoriteProvider><FavoritePage /></FavoriteProvider>} />
       </Routes>
 );
 

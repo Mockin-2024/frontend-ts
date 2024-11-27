@@ -9,4 +9,5 @@ export const enum AppRoutes {
     HISTORY = "/history",
     TOKEN = "/token",
     NEWS = "/news",
+    FAVORITE = "/favorite",
 }

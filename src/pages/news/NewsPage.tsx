@@ -18,7 +18,7 @@ const NewsPage: React.FC = () => {
 
                 {newsList.length > 0 ? (
                     newsList.map((item) => (
-                        <div>
+                        <div key={item.title}>
                             <NewsItem
                                 title={item.title}
                                 time={item.data_tm}

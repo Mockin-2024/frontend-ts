@@ -15,7 +15,7 @@ const NewsPartial: React.FC<Props> = ({newsList, moreNews}) => {
             </div>
             {newsList.length > 0 ? (
                 newsList.slice(0, 5).map((item) => (
-                    <div>
+                    <div key={item.title}>
                         <NewsItem
                             title={item.title}
                             time={item.data_tm}

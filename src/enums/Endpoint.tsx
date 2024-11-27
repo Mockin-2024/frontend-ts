@@ -35,4 +35,7 @@ export const enum Endpoint {
     GET_ASKING_PRICE = "quotations/basic/inquire-asking-price",
 
     GET_NEWS_TITLE = "quotations/analysis/news-title",
+
+    POST_FAVORITE_SELECT = "favorite/select",
+    GET_FAVORITE_READ = "favorite/read",
 }

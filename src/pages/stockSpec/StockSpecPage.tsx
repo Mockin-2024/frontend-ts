@@ -26,15 +26,15 @@ const StockSpecPage: React.FC = () => {
 
     const isLoading = loadingSearchInfo || loadingPrice || loadingAskingPrice || loadingTimePrice;
     const isError = errorSearchInfo || errorPrice || errorAskingPrice || errorTimePrice;
-
+    const isValid = !isLoading && !isError && searchInfo && priceInfo && askingPriceInfo && timePriceDataList
     return (
         <div className={""}>
             <LoadingOrError loading={isLoading} error={isError} />
-            <StockSpecTopNavBar/>
 
             <div className={"pt-20 p-4"}>
-                {!isLoading && !isError && searchInfo && priceInfo && askingPriceInfo && timePriceDataList &&(
+                {isValid &&(
                     <>
+                        <StockSpecTopNavBar excd={searchInfo.ovrs_excg_cd} symb={stockId}/>
                         <StockInfo
                             name={searchInfo.prdt_name}
                             priceInfo={priceInfo}

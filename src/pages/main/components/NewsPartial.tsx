@@ -1,13 +1,11 @@
 import React from "react";
+
 import NewsItem from "../../../components/item/NewsItem";
-import {NewsData} from "../types/NewsData";
 
-interface Props{
-    newsList: NewsData[];
-    moreNews: (() => void) | undefined;
-}
+import useNews from "../hooks/useNews";
 
-const NewsPartial: React.FC<Props> = ({newsList, moreNews}) => {
+const NewsPartial: React.FC = () => {
+    const {newsList, moreNews} = useNews()
     return(
         <div>
             <div className={"pt-12 text-xl"}>

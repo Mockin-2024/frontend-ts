@@ -3,12 +3,11 @@ import React from "react";
 import Balance from "./components/Balance";
 
 import MainTopNavBar from "./components/MainTopNavBar";
-import NewsPartial from "./components/NewsPartial";
 import History from "./components/History";
-import useNews from "./hooks/useNews";
+import Favorites from "./components/Favorites";
+import NewsPartial from "./components/NewsPartial";
 
 const MainPage: React.FC = () => {
-    const {newsList, moreNews} = useNews()
 
     return (
         <div>
@@ -16,7 +15,8 @@ const MainPage: React.FC = () => {
             <div className={"pt-20 p-4"}>
                 <Balance/>
                 <History />
-                <NewsPartial newsList={newsList} moreNews={moreNews} />
+                <Favorites />
+                <NewsPartial />
             </div>
         </div>
     )
